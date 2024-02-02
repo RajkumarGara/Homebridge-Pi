@@ -35,7 +35,7 @@ sudo hb-shell
 As a Homebridge user, you can create a new plugin project in a folder (the folder name doesn't have to match the plugin name). For this project, you'll need to implement two main files: index.js and package.json.
 -> index.js: This is where you write the main logic of your plugin. It should export a function that Homebridge will call to register your accessory or platform.
 -> package.json: This file describes your plugin, including its name, version, and dependencies.
-For more information go to [homebridge-plugin-template](https://github.com/homebridge/homebridge-plugin-template)
+For more information check [homebridge-plugin-template](https://github.com/homebridge/homebridge-plugin-template) [homebridge-API](https://developers.homebridge.io/).
 
 * Write the homebridge `config.json` file according to the plugin.
  ```bash
@@ -68,7 +68,8 @@ systemctl restart homebridge
 ```
 You will be asked to enter the homebridge password.
 
-* Plugin successfully added 
+* Plugin successfully added.
+
 To check your plugin in Homebridge, go to the Homebridge UI and navigate to the "Plugins" section. There, you can view and manage your installed plugins.
 
 
