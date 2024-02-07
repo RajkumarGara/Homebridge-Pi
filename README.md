@@ -92,9 +92,18 @@ As a Homebridge user, you can create a new plugin project in a folder (the folde
     ```
 * Execute [`Pico-W`](https://github.com/RajkumarGara/pico-network-serial-port/blob/main/main.py) code by following the steps on [github](https://github.com/RajkumarGara/pico-network-serial-port). Make sure the devices (either LMDI-100 or Mechonet) are connected to the [Pico-W](https://github.com/RajkumarGara/pico-network-serial-port?tab=readme-ov-file#images). 
 
-* Control lights or window coverings directly from Apple HomeKit. 
+* Control lights or window coverings through Apple HomeKit or Homebridge Accessories. Using a HomeKit accessory connects Homebridge to the TCP server, sends the relevant command, and then disconnects.
 
     ![HomeKit](img/2.jpg)
+    
+    ![Homebridge Accessories](img/4.jpg)
+    
+## Features of the TCP-Server
+1. Recognizes a client as Pico-W when it receives first packet with “pico_{any-number}” upon connecting and uses this to create a named pipe.
+2. Identifies another client as Homebridge.
+3. Receives data from Homebridge and forwards it to Pico-W.
+4. Monitors data written to the named pipe and relays it to Pico-W.
+5. Removes the named pipe when Pico-W disconnects.
 
 ## Devloper Notes
 * To see which plugins are linked to Homebridge, run the following command in the homebridge terminal.
@@ -106,11 +115,8 @@ As a Homebridge user, you can create a new plugin project in a folder (the folde
 * The below screenshot shows the homebridge log when various accessories are operated in HomeKit.
     ![Homebridge log](img/3.jpg)
 
-* Accessories can also be controlled via the Homebridge Accessories section, as shown below.
-    ![Homebridge Accessories](img/4.jpg)
-    
-* This screenshot displays the TCP server running on Raspberry-Pi
+* This screenshot displays the TCP server running on Raspberry-Pi.
     ![TCP Server](img/5.jpg)
         
-* This screenshot shows the commands received by Pico-W
+* This screenshot shows the commands received by Pico-W.
     ![Pico-W](img/6.jpg)
