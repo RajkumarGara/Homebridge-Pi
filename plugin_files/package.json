@@ -1,0 +1,28 @@
+{
+  "name": "homebridge-tcp-smarthome",
+  "version": "1.0.0",
+  "author": "Rajkumar Gara",
+  "description": "A Homebridge plugin to control the lights and blinds through TCP",
+  "homepage": "https://github.com/RajkumarGara/homebridge-tcp-smarthome",
+  "keywords": ["homebridge-plugin", "homebridge-lights", "homebridge-blinds", "lights", "blinds", "tcp"],
+  "license": "CC0-1.0",
+  "deprecated": false,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RajkumarGara/Homebridge-Pi"
+  },
+  "bugs": {
+    "url": "https://github.com/RajkumarGara/Homebridge-Pi/issues"
+  },
+  "dependencies": {
+      "async-mutex": "^0.3.2"
+  },
+  "engines": {
+    "homebridge": ">=1.3.0",
+    "node": ">=14.17.0"
+  },
+  "scripts": {
+    "test": ""
+  }
+}

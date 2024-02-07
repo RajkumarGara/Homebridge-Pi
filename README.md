@@ -1,9 +1,9 @@
 # About
-The `homebridge-tcp-smarthome` plugin integrates Apple HomeKit with devices controlled via TCP commands, enabling smart home capabilities directly from your iOS device. Running on a Raspberry Pi with Homebridge, this plugin is designed to send light on/off commands suitable for LMDI-100 devices, as well as window covering commands compatible with Mechonet Network Interfaces. Accessing the accessory in HomeKit triggers the command from Homebridge to a [`TCP Server`](./pico_server.js) running on the Pi, which in turn sends the commands to the [`Pico-W`](https://github.com/RajkumarGara/pico-network-serial-port) TCP client. Commands are transmitted through TCP to this client, which then relays these instructions to the connected devices via RS232. This setup allows for the control of various loads, including lighting and window coverings. Multiple pico-w units can be deployed across an entire floor, ensuring comprehensive coverage and control, as long as they are connected to the same WiFi network as the Raspberry Pi. If this plugin is published to npm, then no need to follow the steps for [Unpublished Plugin](#Adding-unpublished-plugin-to-the-Homebridge); instead, refer [published Plugin](#Adding-published-plugin-to-the-Homebridge).
+The **homebridge-tcp-smarthome** plugin integrates Apple HomeKit with devices controlled via TCP commands, enabling smart home capabilities directly from your iOS device. Running on a Raspberry Pi with Homebridge, this plugin is designed to send light on/off commands suitable for LMDI-100 devices, as well as window covering commands compatible with Mechonet Network Interfaces. Accessing the accessory in HomeKit triggers the command from Homebridge to a [`TCP Server`](./pico_server.js) running on the Pi, which in turn sends the commands to the [`Pico-W`](https://github.com/RajkumarGara/pico-network-serial-port) TCP client. Commands are transmitted through TCP to this client, which then relays these instructions to the connected devices via RS232. This setup allows for the control of various loads, including lighting and window coverings. Multiple pico-w units can be deployed across an entire floor, ensuring comprehensive coverage and control, as long as they are connected to the same WiFi network as the Raspberry Pi. If this plugin is published to npm, then no need to follow the steps for [Unpublished Plugin](#Adding-unpublished-plugin-to-the-Homebridge); instead, refer [published Plugin](#Adding-published-plugin-to-the-Homebridge).
 
 ## Features
 1. It supports light and window covering accessories.
-2. Number of accessories can be [configured](#configure-the-plugin-addremove-accessories).
+2. Number of accessories can be configured. (Refer to `Configure the Plugin` in [Unpublished Plugin](#Adding-unpublished-plugin-to-the-Homebridge) section).
 3. Homebridge sends LMDI-100, Mechonet commands to the pico-w through TCP.
 4. Individual lights on/off.
 5. Individual light brightness control from 0 to 100%.
@@ -34,7 +34,7 @@ To find the IP address of your server you can run:
 
     ![Homebridge](img/1.jpg)
 ## Adding unpublished plugin to the Homebridge
-* Navigate to homebridge terminal
+* Navigate to homebridge terminal by entering below command on your device (Raspberry Pi) terminal.
     ```bash
     sudo hb-shell
     ```
@@ -88,7 +88,7 @@ As a Homebridge user, you can create a new plugin project in a folder (the folde
     ```bash
     node pico_server.js
     ```
-* Execute [`Pico-W`](https://github.com/RajkumarGara/pico-network-serial-port/blob/main/main.py) code by following the steps on [github](https://github.com/RajkumarGara/pico-network-serial-port). Make sure the devices (either LMDI-100 or Mechonet) are connected properly to the [Pico-W](https://github.com/RajkumarGara/pico-network-serial-port?tab=readme-ov-file#images). 
+* Execute [`Pico-W`](https://github.com/RajkumarGara/pico-network-serial-port/blob/main/main.py) code by following the steps on [github](https://github.com/RajkumarGara/pico-network-serial-port). Make sure the devices (either LMDI-100 or Mechonet) are connected to the [Pico-W](https://github.com/RajkumarGara/pico-network-serial-port?tab=readme-ov-file#images). 
 * Control lights or window coverings directly from Apple HomeKit. 
 
 ## Devloper Notes

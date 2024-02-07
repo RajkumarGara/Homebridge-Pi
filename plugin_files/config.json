@@ -1,0 +1,35 @@
+{
+    "bridge": {
+        "name": "Homebridge",
+        "username": "CC:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "031-45-154"
+    },
+    "description": "Homebridge TCP Smart Home",
+    "platforms": [
+        {
+            "platform": "TCPSmartHome",
+            "name": "TCPSmartHome",
+            "ip_address": "10.3.136.129",      
+            "devices": [
+                {
+                    "name": "Light 1",
+                    "type": "Light",
+                    "id": "1",
+                    "port": 50000
+                },
+                {
+                    "name": "Blind 1",
+                    "type": "Blind",
+                    "id": "2",
+                    "port": 50000
+                }
+            ],
+            "_bridge": {
+                "username": "CE:25:64:E3:23:30",
+                "port": 52326
+            }
+        }
+    ],
+    "accessories": []
+}
