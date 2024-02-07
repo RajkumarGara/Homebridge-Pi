@@ -3,7 +3,7 @@ The **homebridge-tcp-smarthome** plugin integrates Apple HomeKit with devices co
 
 ## Features
 1. It supports light and window covering accessories.
-2. Number of accessories can be configured. (Refer to `Configure the Plugin` in [Unpublished Plugin](#Adding-unpublished-plugin-to-the-Homebridge) section).
+2. Number of accessories can be configured. (Refer to `Configure the Plugin` section in [Unpublished Plugin](#Adding-unpublished-plugin-to-the-Homebridge)).
 3. Homebridge sends LMDI-100, Mechonet commands to the pico-w through TCP.
 4. Individual lights on/off.
 5. Individual light brightness control from 0 to 100%.
@@ -73,6 +73,7 @@ As a Homebridge user, you can create a new plugin project in a folder (the folde
 
 ## Removing unpublished plugin from the Homebridge
 * Run below commands in **homebridge terminal** to remove the plugin from homebridge. Replace `homebridge-tcp-smarthome` with your plugin name.
+
     ```bash
     npm unlink homebridge-tcp-smarthome
     rm -rf /opt/homebridge/lib/node_modules/homebridge-tcp-smarthome
@@ -85,11 +86,14 @@ As a Homebridge user, you can create a new plugin project in a folder (the folde
 
 ## Running the setup
 * Run [`TCP Server`](./pico_server.js) on Pi. Make sure Node.js was installed before running the code.
+
     ```bash
     node pico_server.js
     ```
 * Execute [`Pico-W`](https://github.com/RajkumarGara/pico-network-serial-port/blob/main/main.py) code by following the steps on [github](https://github.com/RajkumarGara/pico-network-serial-port). Make sure the devices (either LMDI-100 or Mechonet) are connected to the [Pico-W](https://github.com/RajkumarGara/pico-network-serial-port?tab=readme-ov-file#images). 
+
 * Control lights or window coverings directly from Apple HomeKit. 
+
     ![HomeKit](img/2.jpg)
 
 ## Devloper Notes
@@ -98,5 +102,15 @@ As a Homebridge user, you can create a new plugin project in a folder (the folde
     ls /opt/homebridge/lib/node_modules
     ```
 
-## Images
+## Project Gallery
+* The below screenshot shows the homebridge log when various accessories are operated in HomeKit.
+    ![Homebridge log](img/3.jpg)
 
+* Accessories can also be controlled via the Homebridge Accessories section, as shown below.
+    ![Homebridge Accessories](img/4.jpg)
+    
+* This screenshot displays the TCP server running on Raspberry-Pi
+    ![TCP Server](img/5.jpg)
+        
+* This screenshot shows the commands received by Pico-W
+    ![Pico-W](img/6.jpg)
