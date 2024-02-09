@@ -120,3 +120,6 @@ As a Homebridge user, you can create a new plugin project in a folder (the folde
         
 * This screenshot shows the commands received by Pico-W.
     ![Pico-W](img/6.jpg)
+
+## 🙌 Credits
+Special thanks to [Medical Informatics Engineering](https://www.mieweb.com/) for their support throughout the development of this project, especially to [Doug Horner](https://github.com/horner) for his invaluable guidance.
