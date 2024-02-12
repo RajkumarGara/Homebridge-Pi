@@ -101,6 +101,9 @@ As a Homebridge user, you can create a new plugin project in a folder (the folde
     ```
 
 ## Project Gallery
+* This block diagram describes the complete project.
+    ![Block diagram](img/8.jpg)
+
 * The below screenshot shows the homebridge log when various accessories are operated in HomeKit.
     ![Homebridge log](img/3.jpg)
 
