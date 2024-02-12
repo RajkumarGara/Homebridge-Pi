@@ -105,11 +105,11 @@ class TcpSmarthomePlatform {
                 this.log.warn('t31. Blinds - Set Position');
                 // Mapping from percentage levels to custom levels
                 const levelMap = {
-                    0: 'UP', 
-                    25: 'G1',
+                    0: 'DN', 
+                    25: 'G3',
                     50: 'G2',
-                    75: 'G3',
-                    100: 'DN'
+                    75: 'G1',
+                    100: 'UP'
                 };
 
                 // Convert the 0-100% range into one of your 5 preset levels
