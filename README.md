@@ -1,5 +1,5 @@
 # About
-The **homebridge-tcp-smarthome** plugin integrates Apple HomeKit with devices controlled via TCP commands, enabling smart home capabilities directly from your iOS device. Running on a Raspberry Pi with Homebridge, this plugin is designed to send light on/off commands suitable for [`LMDI-100`](./docs/LMDI_Serial_Protocol.pdf) devices, as well as window covering commands compatible with [`Mechonet`](./docs/Mecho_Shade_Serial_Protocol.pdf) Network Interfaces. Operating the accessory in HomeKit triggers the command from Homebridge to [`tcpserver`](https://github.com/RajkumarGara/pico-network-serial-port/blob/main/ttpserver.js) running on the Pi, which in turn sends the commands to the [`Pico-W`](https://github.com/RajkumarGara/pico-network-serial-port/blob/main/main.py) TCP client. Commands are transmitted through TCP to this client, which then relays these instructions to the connected devices via RS232. This setup allows for the control of various loads, including lighting and window coverings. Multiple pico-w units can be deployed across an entire floor, ensuring comprehensive coverage and control, as long as they are connected to the same WiFi network as the Raspberry Pi. If this plugin is published to npm, then no need to follow the steps for [Unpublished Plugin](#Adding-unpublished-plugin-to-the-Homebridge); instead, refer [published Plugin](#Adding-published-plugin-to-the-Homebridge).
+The **homebridge-tcp-smarthome** plugin integrates Apple HomeKit with devices controlled via TCP commands, enabling smart home capabilities directly from your iOS device. Running on a Raspberry Pi with Homebridge, this plugin is designed to send light on/off commands suitable for [`LMDI-100`](./docs/LMDI_Serial_Protocol.pdf) devices, as well as window covering commands compatible with [`Mechonet`](./docs/Mecho_Shade_Serial_Protocol.pdf) Network Interfaces. Operating the accessory in HomeKit triggers the command from Homebridge to [`tcpserver`](./tcpserver.js) running on the Pi, which in turn sends the commands to the [`Pico-W`](https://github.com/RajkumarGara/pico-network-serial-port/blob/main/main.py) TCP client. Commands are transmitted through TCP to this client, which then relays these instructions to the connected devices via RS232. This setup allows for the control of various loads, including lighting and window coverings. Multiple pico-w units can be deployed across an entire floor, ensuring comprehensive coverage and control, as long as they are connected to the same WiFi network as the Raspberry Pi. If this plugin is published to npm, then no need to follow the steps for [Unpublished Plugin](#Adding-unpublished-plugin-to-the-Homebridge); instead, refer [published Plugin](#Adding-published-plugin-to-the-Homebridge).
 
 ## Features
 1. It supports light and window covering accessories.
@@ -88,13 +88,18 @@ As a Homebridge user, you can create a new plugin project in a folder (the folde
 ## Running the setup
 * Setup the `Pico-W` following the steps on [github](https://github.com/RajkumarGara/pico-network-serial-port). Make sure the device (either LMDI-100 or Mechonet) are connected to the [Pico-W](https://github.com/RajkumarGara/pico-network-serial-port?tab=readme-ov-file#images). 
 
+* Run tcpserver.js on Raspberry Pi.
+    ```bash
+    node tcpserver.js
+    ```
+
 * Control lights or window coverings through Apple HomeKit or Homebridge Accessories. Operating a HomeKit accessory connects Homebridge to the TCP server, sends the relevant command, and then disconnects.
 
     ![HomeKit](img/2.jpg)
     
     ![Homebridge Accessories](img/4.jpg)
 
-## Devloper Notes
+## Developer Notes
 * To see which plugins are linked to Homebridge, run the following command in the homebridge terminal.
     ```bash
     ls /opt/homebridge/lib/node_modules
